@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuition Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Login Page -->
+    <div id="loginPage" class="login-container">
+        <div class="login-box">
+            <h1>Tuition Management</h1>
+            <p>Admin Login</p>
+
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+
+            <button onclick="login()">Login</button>
+
+            <p id="loginError"></p>
+        </div>
+    </div>
+
+
+    <!-- Main Dashboard -->
+    <div id="dashboard" class="hidden">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <h2>Tuition System</h2>
+
+            <button onclick="showSection('home')">
+                Dashboard
+            </button>
+
+            <button onclick="showSection('students')">
+                Students
+            </button>
+
+            <button onclick="showSection('fees')">
+                Fees
+            </button>
+
+            <button onclick="showSection('attendance')">
+                Attendance
+            </button>
+
+            <button onclick="logout()">
+                Logout
+            </button>
+
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Dashboard -->
+            <section id="home" class="section">
+
+                <h1>Dashboard</h1>
+
+                <div class="cards">
+
+                    <div class="card">
+                        <h3>Total Students</h3>
+                        <p id="totalStudents">0</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Total Fees</h3>
+                        <p id="totalFees">₹0</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Present Today</h3>
+                        <p id="presentToday">0</p>
+                    </div>
+
+                </div>
+
+                <div class="welcome">
+                    <h2>Welcome to Tuition Management System</h2>
+                    <p>
+                        Manage students, fees and attendance easily.
+                    </p>
+                </div>
+
+            </section>
+
+
+            <!-- Students -->
+            <section id="students" class="section hidden">
+
+                <h1>Students</h1>
+
+                <div class="form-box">
+
+                    <input
+                        type="text"
+                        id="studentName"
+                        placeholder="Student Name"
+                    >
+
+                    <input
+                        type="text"
+                        id="studentCourse"
+                        placeholder="Course"
+                    >
+
+                    <input
+                        type="text"
+                        id="studentPhone"
+                        placeholder="Phone Number"
+                    >
+
+                    <button onclick="addStudent()">
+                        Add Student
+                    </button>
+
+                </div>
+
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Course</th>
+                            <th>Phone</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="studentTable">
+                    </tbody>
+
+                </table>
+
+            </section>
+
+
+            <!-- Fees -->
+            <section id="fees" class="section hidden">
+
+                <h1>Fees</h1>
+
+                <div class="form-box">
+
+                    <input
+                        type="text"
+                        id="feeStudent"
+                        placeholder="Student Name"
+                    >
+
+                    <input
+                        type="number"
+                        id="feeAmount"
+                        placeholder="Fee Amount"
+                    >
+
+                    <button onclick="addFee()">
+                        Add Fee
+                    </button>
+
+                </div>
+
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Student</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="feeTable">
+                    </tbody>
+
+                </table>
+
+            </section>
+
+
+            <!-- Attendance -->
+            <section id="attendance" class="section hidden">
+
+                <h1>Attendance</h1>
+
+                <div class="form-box">
+
+                    <input
+                        type="text"
+                        id="attendanceStudent"
+                        placeholder="Student Name"
+                    >
+
+                    <select id="attendanceStatus">
+
+                        <option value="Present">
+                            Present
+                        </option>
+
+                        <option value="Absent">
+                            Absent
+                        </option>
+
+                    </select>
+
+                    <button onclick="addAttendance()">
+                        Mark Attendance
+                    </button>
+
+                </div>
+
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Student</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="attendanceTable">
+                    </tbody>
+
+                </table>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
